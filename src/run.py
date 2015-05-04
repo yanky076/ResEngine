@@ -2,22 +2,19 @@
 # coding: utf-8
 
 import cherrypy
-from pyjsonrpc.cp import CherryPyJsonRpc, rpcmethod
+from engine import ResEngine
+import logging
 
-class ResEngine(CherryPyJsonRpc):
-    @rpcmethod
-    def add(self, a, b):
-        return a + b
+# configuring logger
+logger = logging.getLogger("MAIN")
+logHandlerConsole = logging.StreamHandler()
+logFormatter = logging.Formatter("%(asctime)s %(name)-12s %(levelname)-8s %(message)s")
+logHandlerConsole.setFormatter(logFormatter)
+logger.addHandler(logHandlerConsole)
+logger.setLevel(logging.DEBUG)
 
-    index = CherryPyJsonRpc.request_handler
-
+# configuring and starting cherrypy engine
 cherrypy.config.update("../conf/server.conf")
-cherrypy.tree.mount(ResEngine(), "/res", config="../conf/app.conf")
-if hasattr(cherrypy.engine, 'block'):
-    # 3.1 syntax
-    cherrypy.engine.start()
-    cherrypy.engine.block()
-else:
-    # 3.0 syntax
-    cherrypy.server.quickstart()
-    cherrypy.engine.start()
+cherrypy.tree.mount(ResEngine.ResEngine(), "/res", config="../conf/app.conf")
+cherrypy.engine.start()
+cherrypy.engine.block()

@@ -1,0 +1,32 @@
+<ServerInfo state="1111:">
+  <id>3f4f9a30-96f7-11e4-9a3a-002264f38886</id>
+  <hostname>wsftpprd30</hostname>
+  <platform>9117-MMB</platform>
+  <OS>AIX</OS>
+  <RAM />
+  <CPU />
+  <Provision>
+    <Action id="3f4fa7e6-96f7-11e4-9a3a-002264f38886">
+      <type>sos_aix_prov</type>
+      <name>wsftpprd30</name>
+      <param name="COPPER_ID">DBJP635-P2-C1-T1</param>
+      <param name="CLIENT_IP">60.2.1.9</param>
+      <param name="SERVER_IP">60.1.1.2</param>
+      <param name="GATEWAY">60.1.1.2</param>
+      <param name="MANAGED_SYSTEM">P7-770-3_SN101EF7R</param>
+      <param name="SYSCFG_NAME">wsftpprd30</param>
+      <param name="HMC_IP">10.64.43.36</param>
+      <param name="HMC_USER">hmcuser</param>
+      <param name="HMC_PASS">rs6k@401</param>
+    </Action>
+  </Provision>
+  <Configuration>
+    <Action id="3f4fc3f2-96f7-11e4-9a3a-002264f38886">
+      <type>manual_step</type>
+      <name>waitforever</name>
+      <param name="displayinfo">AIX Provisioning for wsftpprd30 is running, Waiting For Network Switch</param>
+    </Action>
+  </Configuration>
+  <Restoration />
+  <Cleanup />
+</ServerInfo>
